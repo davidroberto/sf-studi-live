@@ -1,0 +1,17 @@
+.header-top {
+  background-color: lightblue;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: left;
+  align-items: center;
+  height: 100px;
+}
+
+.header-top-image {
+  width: 50px;
+  margin-left: 20px;
+}
+
+.blue {
+  color: #5eb5e0;
+}

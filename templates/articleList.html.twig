@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block main %}
+    <div class="articles-container">
+        {% for article in articles %}
+
+            <article class="article">
+                <h1>{{ article.title }}</h1>
+                <p>{{ article.content }}</p>
+
+                {% if article.category %}
+                    <p>Catégorie : {{ article.category.title }}</p>
+                {% else %}
+                    <p>Cet article n'a pas de catégorie</p>
+                {% endif %}
+
+                <a href="{{ path('article_show', {'id': article.id }) }}">Voir l'article</a>
+            </article>
+        {% endfor %}
+    </div>
+{% endblock main %}

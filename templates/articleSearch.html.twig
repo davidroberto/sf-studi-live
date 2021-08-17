@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block main %}
+    <h1>Les articles trouvés pour "{{ term }}" : </h1>
+
+    <div class="articles-container">
+        {% for article in articles %}
+            <article class="article">
+                <h1>{{ article.title }}</h1>
+                <p>{{ article.content }}</p>
+                <p>Catégorie : {{ article.category.title }}</p>
+                <a href="{{ path('article_show', {'id': article.id }) }}">Voir l'article</a>
+            </article>
+        {% endfor %}
+    </div>
+{% endblock %}
+

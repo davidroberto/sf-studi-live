@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block main %}
+
+    <h1>Mon super blog</h1>
+
+    <h2>Les derniers articles : </h2>
+
+    {% for article in lastArticles %}
+        <article>
+            <h3>{{ article.title }}</h3>
+            <a href="{{ path('article_show', {'id': article.id}) }}">Voir l'article</a>
+        </article>
+    {% endfor %}
+
+    <a href="{{ path('articles_list') }}">Voir tous les articles</a>
+
+
+    <h2>Les dernières categories : </h2>
+
+    {% for category in lastCategories %}
+        <article>
+            <h3>{{ category.title }}</h3>
+            <a href="{{ path('category_show', {'id': category.id}) }}">Voir la catégorie</a>
+        </article>
+    {% endfor %}
+
+    <a href="{{ path('categories_list') }}">Voir toutes les catégories</a>
+
+{% endblock %}
+
+

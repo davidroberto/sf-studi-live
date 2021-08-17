@@ -1,0 +1,13 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block main %}
+    {% for article in articles %}
+        <article>
+            <p>{{ article.title }}</p>
+            <a href="{{ path('admin_article_delete', {'id': article.id}) }}">Supprimer l'article</a>
+            <a href="{{ path('admin_article_update', {'id': article.id}) }}">Modifier l'article</a>
+        </article>
+    {% endfor %}
+
+    <a href="{{ path('admin_article_insert') }}">Créer un article</a>
+{% endblock main %}

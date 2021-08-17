@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    {{ encore_entry_link_tags('app') }}
+</head>
+<body>
+
+<header class="header-top">
+    <img class="header-top-image" src="{{ asset('assets/img/logo.jpg') }}" alt="logo super blog">
+
+    <p>Zone ADMIN pour {{ app.user.email }}</p>
+
+    <ul>
+        <li><a href="{{ path('admin_articles_list') }}">Liste des articles</a></li>
+        <li><a href="{{ path('admin_category_index') }}">Liste des categories</a></li>
+        <li><a href="{{ path('app_logout') }}">Se déconnecter</a></li>
+    </ul>
+</header>
+
+
+<main>
+    {% block main %}
+    {% endblock main %}
+</main>
+
+{{ encore_entry_script_tags('app') }}
+</body>
+</html>

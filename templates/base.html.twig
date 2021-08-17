@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    {{ encore_entry_link_tags('app') }}
+</head>
+<body>
+
+<header class="header-top">
+    <a href="{{ path('home') }}">
+        <img class="header-top-image" src="{{ asset('assets/img/logo.jpg') }}" alt="logo super blog">
+    </a>
+
+
+    <form action="{{ path('article_search') }}">
+        <label for="q">Rechercher des articles</label>
+        <input type="text" name="q">
+        <input type="submit">
+    </form>
+
+    <nav>
+        <ul>
+            <li><a href="{{ path('articles_list') }}">Liste des articles</a></li>
+            <li><a href="{{ path('categories_list') }}">Liste des categories</a></li>
+
+            {% if app.user %}
+                <li><a href="{{ path('admin_dashboard') }}">Zone admin</a></li>
+            {% else %}
+                <li><a href="{{ path('app_login') }}">Zone admin</a></li>
+            {% endif %}
+
+        </ul>
+    </nav>
+</header>
+
+
+<main>
+    {% block main %}
+    {% endblock main %}
+</main>
+
+<footer>
+    Je suis le footer
+</footer>
+{{ encore_entry_script_tags('app') }}
+</body>
+</html>

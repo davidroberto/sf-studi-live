@@ -1,0 +1,29 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block main %}
+
+    <h2>Les derniers articles enregistrés : </h2>
+
+    {% for article in lastArticles %}
+        <article>
+            <h3>{{ article.title }}</h3>
+            <a href="{{ path('admin_article_update', {'id': article.id}) }}">Modifier l'article</a>
+        </article>
+    {% endfor %}
+
+    <a href="{{ path('admin_articles_list') }}">Voir tous les articles</a>
+
+
+    <h2>Les dernières categories enregistrées: </h2>
+
+    {% for category in lastCategories %}
+        <article>
+            <h3>{{ category.title }}</h3>
+            <a href="{{ path('admin_category_edit', {'id': category.id}) }}">Modifier la catégorie</a>
+        </article>
+    {% endfor %}
+
+    <a href="{{ path('admin_articles_list') }}">Voir toutes les catégories</a>
+
+{% endblock %}
+
