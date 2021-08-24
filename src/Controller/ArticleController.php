@@ -26,7 +26,7 @@ class ArticleController extends AbstractController
     }
 
     /**
-     * @Route("/articles/{id}", name="article_show")
+     * @Route("/articles/{id}", name="article_show", )
      */
     public function articleShow($id, ArticleRepository $articleRepository)
     {
@@ -36,6 +36,15 @@ class ArticleController extends AbstractController
             'article' => $article
         ]);
     }
+
+    /**
+     * @Route("/articles/politique", name="test")
+     */
+    public function test()
+    {
+        return true;
+    }
+
 
     /**
      * @Route("/search", name="article_search")

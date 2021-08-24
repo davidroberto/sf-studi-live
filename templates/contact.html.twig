@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block main %}
+
+    <form action="" method="post">
+        <label for="firstName">Prénom</label>
+        <input type="text" id="firstName" name="firstName" required minlength="4" >
+        <label for="lastName">Nom</label>
+        <input type="text" id="lastName" name="lastName" required minlength="4" >
+        <label for="email">Email</label>
+        <input type="text" id="email" name="email" required minlength="4" >
+        <label for="message">Message</label>
+        <textarea id="message" name="message" ></textarea>
+        <input type="submit">
+    </form>
+
+{% endblock %}
+
