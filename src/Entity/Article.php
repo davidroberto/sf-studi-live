@@ -2,12 +2,21 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiFilter;
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\BooleanFilter;
 use App\Repository\ArticleRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use ApiPlatform\Core\Annotation\ApiResource;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass=ArticleRepository::class)
+ * @ApiResource(
+ *     normalizationContext={"groups"={"article:read"}}
+ * )
+ * @ApiFilter(BooleanFilter::class, properties={"isPublished"})
+ *
  */
 class Article
 {
@@ -15,32 +24,38 @@ class Article
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @Groups({"article:read"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotNull(message="Attention, le titre doit être rempli !")
+     * @Groups({"article:read"})
      */
     private $title;
 
     /**
      * @ORM\Column(type="text")
+     * @Groups({"article:read"})
      */
     private $content;
 
     /**
      * @ORM\ManyToOne(targetEntity=Category::class, inversedBy="articles")
+     * @Groups({"article:read"})
      */
     private $category;
 
     /**
      * @ORM\Column(type="boolean", nullable=true)
+     * @Groups({"article:read"})
      */
     private $isPublished;
 
     /**
      * @ORM\Column(type="datetime", nullable=true)
+     * @Groups({"article:read"})
      */
     private $updatedAt;
 
